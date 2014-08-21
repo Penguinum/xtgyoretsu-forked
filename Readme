@@ -1,9 +1,12 @@
-XT gyoretsu - extended ncurses version of "Renshu-cho gyoretsu" game by
-Kurashov A.K. (programming, idea of random and hexadecimal modes,
-interface design, ascii-art), Kostyukov D.A. (idea) and
+XT gyoretsu - extended ncurses version of "Renshu-cho gyoretsu"
+game by Kurashov A.K. (programming, idea of random and hexadecimal
+modes, interface design, ascii-art), Kostyukov D.A. (idea) and
 Yakushev D.O. (idea of Kuangshan Yougang mode).
-Task of game - clear entire field by pairs of neighbour numbers, which must be
-or equal, or their sum must be equal to strike out sum.
+
+Goal of the game is to clear entire field by matching pairs of
+neighbouring (adjacent or on the same line/column without any
+other numbers in between) numbers, which must be either equal, or
+their sum must be equal to strike out sum.
 
 Controls:
 h - left
