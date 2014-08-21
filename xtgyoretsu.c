@@ -236,7 +236,7 @@ read_cell (int c_y, int c_x)
 int
 main ()
 {
-  char tty_in;
+  int tty_in;
   int gboard_y = 0, cl = A_NORMAL;
   double ts, te;
   srand (time (0));
@@ -246,6 +246,7 @@ main ()
   noecho ();
   gboard = newpad (1000, 9);
   gbwin = newwin (LINES, 11, 0, COLS / 2 - 17);
+  keypad(gbwin, TRUE);
   sttswin = newwin (LINES, 22, 0, COLS / 2 - 6);
   mvwaddstr (sttswin, 0, 0, "- __    __  _______  -");
   mvwaddstr (sttswin, 1, 0, "- \\ \\  / / |__   __| -");
@@ -276,11 +277,13 @@ main ()
       switch (tty_in)
 	{
 	case 'h':
+	case KEY_LEFT:
 	  gc_x--;
 	  if (gc_x < 0)
 	    gc_x = 0;
 	  break;
 	case 'j':
+	case KEY_DOWN:
 	  gc_y++;
 	  if (gc_y > 999)
 	    gc_y = 999;
@@ -292,6 +295,7 @@ main ()
 	    }
 	  break;
 	case 'k':
+	case KEY_UP:
 	  gc_y--;
 	  if (gc_y < 0)
 	    gc_y = 0;
@@ -303,6 +307,7 @@ main ()
 	    }
 	  break;
 	case 'l':
+	case KEY_RIGHT:
 	  gc_x++;
 	  if (gc_x > 8)
 	    gc_x = 8;
@@ -327,6 +332,7 @@ main ()
 	  white_flag ();
 	  break;
 	case 'z':
+	case ' ':
 	  if (pcm_flag)
 	    {
 	      pcm_flag = 0;
