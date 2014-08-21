@@ -1,9 +1,18 @@
+CC?=		gcc
+CFLAGS?=	#empty
+
+DESTDIR?=	#empty
+PREFIX?=	/usr
+
 all:
-	gcc -o xtgyoretsu xtgyoretsu.c -lcurses -lm
+	${CC} ${CFLAGS} -o xtgyoretsu xtgyoretsu.c -lcurses -lm
 	strip --strip-unneeded xtgyoretsu
+
 install:
-	cp xtgyoretsu /usr/bin
+	cp xtgyoretsu ${DESTDIR}${PREFIX}/bin
+
 clean:
 	rm xtgyoretsu
+
 uninstall:
-	rm /usr/bin/xtgyoretsu
+	rm -f ${DESTDIR}${PREFIX}/bin/xtgyoretsu
