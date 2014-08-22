@@ -9,19 +9,19 @@ other numbers in between) numbers, which must be either equal, or
 their sum must be equal to strike out sum.
 
 Controls:
-  left, h - left
-  down, j - down
-    up, k - up
- right, l - right
-        y - left-up
-        u - right-up
-        b - left-down
-        n - right-down
- space, z - mark cell
-        q - white flag
-        R - Classic/Random modes switch
-        K Kuangshan Yougang mode on/off
-        H - Decimal/Hexadecimal modes switch (unavailable in classic mode)
-        Q - quit
+  left, 4, h - left
+  down, 2, j - down
+    up, 8, k - up
+ right, 6, l - right
+        7, y - left-up
+        9, u - right-up
+        1, b - left-down
+        3, n - right-down
+ space, 5, z - mark cell
+        +, q - white flag
+           R - Classic/Random modes switch
+           K - Kuangshan Yougang mode on/off
+           H - Decimal/Hexadecimal modes switch (unavailable in classic mode)
+           Q - quit
 
 2013-2014, licensed under GNU GPLv3
