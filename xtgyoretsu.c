@@ -276,12 +276,14 @@ main ()
 	cl = A_NORMAL;
       switch (tty_in)
 	{
+	case '4':
 	case 'h':
 	case KEY_LEFT:
 	  gc_x--;
 	  if (gc_x < 0)
 	    gc_x = 0;
 	  break;
+	case '2':
 	case 'j':
 	case KEY_DOWN:
 	  gc_y++;
@@ -294,6 +296,7 @@ main ()
 		gboard_y = 1002 - LINES;
 	    }
 	  break;
+	case '8':
 	case 'k':
 	case KEY_UP:
 	  gc_y--;
@@ -306,31 +309,46 @@ main ()
 		gboard_y = 0;
 	    }
 	  break;
+	case '6':
 	case 'l':
 	case KEY_RIGHT:
 	  gc_x++;
 	  if (gc_x > 8)
 	    gc_x = 8;
 	  break;
-	case 'y': if (gc_y < 1 || gc_x < 1) break;
-		  gc_x--;
-		  gc_y--;
+	// left-up
+	case '7':
+	case 'y':
+	  if (gc_y < 1 || gc_x < 1) break;
+	  gc_x--;
+	  gc_y--;
 	  break;
-	case 'u': if (gc_y < 1 || gc_x > 7) break;
-		  gc_x++;
-		  gc_y--;
+	// right-up
+	case '9':
+	case 'u':
+	  if (gc_y < 1 || gc_x > 7) break;
+	  gc_x++;
+	  gc_y--;
 	  break;
-	case 'b': if (gc_x < 1 || gc_y > 998) break;
-		  gc_x--;
-		  gc_y++;
+	// left-down
+	case '1':
+	case 'b':
+	  if (gc_x < 1 || gc_y > 998) break;
+	  gc_x--;
+	  gc_y++;
 	  break;
-	case 'n': if (gc_x > 7 || gc_y > 998) break;
-		  gc_x++;
-		  gc_y++;
+	// right-down
+	case '3':
+	case 'n':
+	  if (gc_x > 7 || gc_y > 998) break;
+	  gc_x++;
+	  gc_y++;
 	  break;
+	case '+':
 	case 'q':
 	  white_flag ();
 	  break;
+	case '5':
 	case 'z':
 	case ' ':
 	  if (pcm_flag)
